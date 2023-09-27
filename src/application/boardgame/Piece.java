@@ -1,12 +1,12 @@
 package application.boardgame;
 
-public abstract class Piece {
-    protected Position piece;
+public class Piece {
+    protected Position position;
     private final Board board;
 
     public Piece(Board board) {
         this.board = board;
-        this.piece = null;
+        this.position = null;
     }
 
     protected Board getBoard() {

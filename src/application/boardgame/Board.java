@@ -37,7 +37,7 @@ public class Board {
             throw new BoardException("There`s already a piece on position " + position);
         }
         if (!positionExists(position)) {
-            throw new BoardException("This position does not exists");
+            throw new BoardException("This position does not exists ");
         }
         int row = position.getRow();
         int column = position.getColumn();
@@ -57,7 +57,7 @@ public class Board {
 
     public boolean thereIsAPiece(Position position) {
         if (!positionExists(position)) {
-            throw new BoardException("This position does not exists");
+            throw new BoardException("This position does not exists ");
         }
         return this.piece(position) != null;
     }

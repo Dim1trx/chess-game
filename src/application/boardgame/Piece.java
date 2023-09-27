@@ -2,7 +2,7 @@ package application.boardgame;
 
 public abstract class Piece {
     protected Position piece;
-    private Board board;
+    private final Board board;
 
     public Piece(Board board) {
         this.board = board;

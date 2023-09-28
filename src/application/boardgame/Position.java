@@ -31,4 +31,9 @@ public class Position {
     public String toString() {
         return "Row: " + this.row + ", column: " + this.column;
     }
+
+    public void setValues(int row, int column) {
+        this.row = row;
+        this.column = column;
+    }
 }

@@ -1,6 +1,7 @@
 package chess.pieces;
 
 import application.boardgame.Board;
+import application.boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
@@ -14,5 +15,22 @@ public class Rook extends ChessPiece{
     @Override
     public String toString() {
         return "R";
+    }
+
+    @Override
+    protected boolean[][] possibleMoves() {
+        boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
+
+/*
+        Position p = new Position(0, 0);
+        // above
+        while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
+            mat[p.getRow()][p.getColumn()] = true;
+            p.setRow(p.getRow() - 1);
+        }
+*/
+
+
+        return mat;
     }
 }

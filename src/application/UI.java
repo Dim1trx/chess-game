@@ -41,7 +41,7 @@ public class UI {
     public static ChessPosition readChessPosition(Scanner sc){
         try {
             String s = sc.next();
-            char column = s.charAt(0);
+            char column = s.toLowerCase().charAt(0);
             int row = Integer.parseInt(s.substring(1));
 
             return new ChessPosition(column, row);
@@ -57,6 +57,10 @@ public class UI {
         System.out.println();
         System.out.println("Turn " + chessMatch.getTurn());
         System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+
+        if (chessMatch.isCheck()) {
+            System.out.println("CHECK!");
+        }
     }
     public static void printBoard(ChessPiece[][] chessPieces){
         for (int i = 0; i < chessPieces.length; i++) {

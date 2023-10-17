@@ -1,9 +1,7 @@
 package chess;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import application.boardgame.Board;
 import application.boardgame.Piece;
@@ -123,7 +121,7 @@ public class ChessMatch {
             throw new IllegalStateException("There is no piece to be promoted");
         }
         if (!type.equals("B") && !type.equals("N") && !type.equals("R") & !type.equals("Q")) {
-            throw new InvalidParameterException("Invalid type for promotion");
+            return promoted;
         }
 
         Position pos = promoted.getChessPosition().toPosition();
@@ -265,7 +263,7 @@ public class ChessMatch {
     }
 
     private ChessPiece king(Color color) {
-        List<Piece> list = piecesOnTheBoard.stream().filter(x -> ((ChessPiece)x).getColor() == color).collect(Collectors.toList());
+        List<Piece> list = piecesOnTheBoard.stream().filter(x -> ((ChessPiece)x).getColor() == color).toList();
         for (Piece p : list) {
             if (p instanceof King) {
                 return (ChessPiece)p;
@@ -276,7 +274,7 @@ public class ChessMatch {
 
     private boolean testCheck(Color color) {
         Position kingPosition = king(color).getChessPosition().toPosition();
-        List<Piece> opponentPieces = piecesOnTheBoard.stream().filter(x -> ((ChessPiece)x).getColor() == opponent(color)).collect(Collectors.toList());
+        List<Piece> opponentPieces = piecesOnTheBoard.stream().filter(x -> ((ChessPiece)x).getColor() == opponent(color)).toList();
         for (Piece p : opponentPieces) {
             boolean[][] mat = p.possibleMoves();
             if (mat[kingPosition.getRow()][kingPosition.getColumn()]) {
